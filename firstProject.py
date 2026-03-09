@@ -8,8 +8,6 @@ x = 8
 y = 5.5
 # notice: y is a float, there is no double in python
 
-z = False
-
 string = "This is the first lecture in python"
 print(string.upper())
 print(string.lower())
@@ -37,7 +35,6 @@ print(f"my name is {name} {surname}")
 
 print(f"{a} + {b} = {a + b}")
 
-
 # question: how to create a generalised format for adding two variables
 c = 12
 d = 61
@@ -54,5 +51,3 @@ second = "big mo"
 
 print("i'd like to invite {} and {}".format(first, second))
 print("i'd like to invite {1} and {0}".format(first, second))
-
-print('rene descartes said: "cogito ergo sum", which translates to "i think therefore i am".')
