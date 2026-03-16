@@ -31,7 +31,7 @@ a = 10_000_000
 print(a)
 # notice: use an underscore in large numbers for readability
 
-# multiple assignments:
+# multiple/tupple assignments:
 f, g, h = 3, 7, 11
 b, c, d, e = 5, 3.9, "test", False
 
