@@ -81,6 +81,8 @@ print(stdDic["Address"])
 del stdDic["Address"]
 print(stdDic)
 
+# end of dictionaries.
+
 # tuples!
 fish = ("big", "small", "yellow", "blue")
 print(fish)
@@ -97,3 +99,5 @@ discount[0] = 0.1
 discount.append(.5)
 discount = tuple(discount)
 print(discount)
+
+# end of tuples.
