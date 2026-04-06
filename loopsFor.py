@@ -92,7 +92,7 @@ print(numbers)
 
 tullab = {"IDs": [202420163, 202410178, 202324020, 202512003],
           "Names": ["Acheron", "Ahmad", "Frederick", "Julianne"],
-          "Majors": ["AStrophysics", "Mathematics", "Data Science", "Psychology"],
+          "Majors": ["Astrophysics", "Mathematics", "Data Science", "Psychology"],
           "Grades": [98, 96, 89, 94]}
 for (key3, values) in tullab.items():
     print(key3, end = ":")
