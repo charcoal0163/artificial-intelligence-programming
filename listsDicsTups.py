@@ -50,21 +50,22 @@ print(students)
 countries = ["germany", "ireland", "austria", "switzerland", "finland"]
 
 print("regular:\t\t\t", countries)
+
 countries.sort()
-
 print("sort():\t\t\t\t", countries)
+
 countries.sort(reverse = True)
-
 print("sort() + reverse:\t", countries)
+
 sortedCountries = sorted(countries)
-
 print("sorted():\t\t\t", sortedCountries)
+
 reverseCountries = sorted(countries, reverse = True)
-
 print("sorted() + reverse:\t", reverseCountries)
-countries.reverse()
 
+countries.reverse()
 print("reverse():\t\t\t", countries)
+
 print("length:\t\t\t\t", len(countries))
 # end of exercise
 
