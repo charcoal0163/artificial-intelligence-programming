@@ -1,0 +1,27 @@
+CREATE TABLE students(
+    stdNumber NUMBER(2) PRIMARY KEY,
+    stdName VARCHAR2(10) NOT NULL UNIQUE,
+    major VARCHAR2(5),
+    stdAverage NUMBER(5, 2) CHECK(stdAverage >= 50)
+);
+
+DESC students;
+
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (10, 'Acheron', 'DS', 99.26);
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (20, 'Ahmad', 'MATH', 98.5);
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (30, 'Qusai', 'CS', 97.2);
+
+SELECT * FROM students;
+
+ALTER TABLE students ADD telephone VARCHAR2(10);
+ALTER TABLE students MODIFY telephone VARCHAR2(20);
+ALTER TABLE students DROP COLUMN telephone;
+
+INSERT INTO students(stdNumber, stdName, major, stdAverage) 
+VALUES (40, 'Mahmoud', 'ASTRO', 96.8);
+
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (50, 'Mhmd', 'SE', -90);
