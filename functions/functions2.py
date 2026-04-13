@@ -86,3 +86,18 @@ print("the list", theList)
 updateList(theList)
 print("the list, after", theList)
 print("not the list", notTheList)
+
+# exercise 3 from powerpoint
+def sendMsg(messages):
+    sent = []
+    for i in range(len(messages)):
+        sent.append(messages.pop())
+        # alternatively, to not use pop(): sent.append(messages[i])
+    return sent
+
+messages = ["hello", "one", "two", "three"]
+sent = sendMsg(messages[:])
+
+print(messages)
+print(sent)
+# end of exercise
