@@ -50,7 +50,7 @@ insert into emp(empNo, empName, deptNo, salary) values (1, 'Acheron', 2, 300);
 insert into emp(empNo, empName, deptNo, salary) values (2, 'Ahmad', 1, 350);
 insert into emp(empNo, empName, deptNo, salary) values (3, 'Qusai', 3, 275);
 
--- different ways to ADD records
+-- ADD records
 ---- 1 - foreign key can be nullified
 insert into emp values (4, 'Mohammed', null, 250);
 ---- 2 - decreased parameters (as long as not primary key or not null)
@@ -65,8 +65,5 @@ update emp set deptNo = 1, salary = 375 where empNo = 5;
 delete from dept where deptNo = 5;
 -- notice: where specifies which record to delete
 
-select * from emp;
-select * from dept;
-
-drop table emp;
-drop table dept;
+-- operations used: select, insert, update, delete
+-- constraints: foreign key (FK), primary key (PK), check (CK), not null, unique
