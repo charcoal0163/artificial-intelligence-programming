@@ -1,14 +1,15 @@
 # classes!
 
 class Rectangle:
-    # constructor
+    # constructor:
     def __init__(self, length = 1, width = 1, colour = "colourless"):
         self.length = length
         self.width = width
         self.colour = colour
         self.name = "julianne"
         # notice: there's no need to define all variables to use them
-        
+
+    # notice: all methods must take 'self' as a first parameter
     def area(self):
         return self.length * self.width
     def details(self):
@@ -26,7 +27,8 @@ class Rectangle:
         else:
             print("lol nope")
             self.width = 1
-    
+
+# creating objects:
 obj1 = Rectangle(5, 6, "blue")
 print("details of first rectangle")
 obj1.details()
@@ -37,12 +39,12 @@ print(Rectangle.area(obj1))
 obj2 = Rectangle()
 print("details of second rectangle")
 obj2.details()
-
+# using the setters:
 obj2.setLength(-3)
 obj2.setWidth(4)
 print(obj2.area())
 
-# exercise 5 from powerpoint
+# exercise 5 from powerpoint:
 class User:
     def __init__(self, first, last, age):
         self.first = first
@@ -52,6 +54,6 @@ class User:
     def describe(self):
         print(f"user's name is {self.first} {self.last}, and they are {self.age} years old.")
 
-obj3 = User("Sadeen", "Abed", 18)
+obj3 = User("Acheron", "Dalbah", 18)
 obj3.describe()
 # end of exercise
