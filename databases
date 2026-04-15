@@ -1,0 +1,72 @@
+CREATE TABLE students(
+    stdNumber NUMBER(2) PRIMARY KEY,
+    stdName VARCHAR2(10) NOT NULL UNIQUE,
+    major VARCHAR2(5),
+    stdAverage NUMBER(5, 2) CHECK(stdAverage >= 50)
+);
+
+DESC students;
+
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (10, 'Acheron', 'DS', 99.26);
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (20, 'Ahmad', 'MATH', 98.5);
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (30, 'Qusai', 'CS', 97.2);
+
+SELECT * FROM students;
+
+ALTER TABLE students ADD telephone VARCHAR2(10);
+ALTER TABLE students MODIFY telephone VARCHAR2(20);
+ALTER TABLE students DROP COLUMN telephone;
+
+INSERT INTO students(stdNumber, stdName, major, stdAverage) 
+VALUES (40, 'Mahmoud', 'ASTRO', 96.8);
+
+INSERT INTO students(stdNumber, stdName, major, stdAverage)
+VALUES (50, 'Mhmd', 'SE', -90);
+
+---------------------------------------------------------------------
+
+-- EmployeeDepartmentTable_Lect4 --
+
+create table dept(
+    deptNo number(3) primary key,
+    deptName varchar2(5) not null unique
+);
+create table emp(
+    empNo number(3) primary key,
+    empName varchar2(30) not null,
+    deptNo number(3) references dept,
+    salary number(7, 2) check (salary >= 100 and salary <= 1000)
+);
+insert into dept(deptNo, deptName) values (1, 'MATH');
+insert into dept(deptNo, deptName) values (2, 'ASTRO');
+insert into dept(deptNo, deptName) values (3, 'AI');
+insert into dept(deptNo, deptName) values (4, 'PHIL');
+insert into dept(deptNo, deptName) values (5, 'CS');
+
+insert into emp(empNo, empName, deptNo, salary) values (1, 'Acheron', 2, 300);
+insert into emp(empNo, empName, deptNo, salary) values (2, 'Ahmad', 1, 350);
+insert into emp(empNo, empName, deptNo, salary) values (3, 'Qusai', 3, 275);
+
+-- different ways to ADD records
+---- 1 - foreign key can be nullified
+insert into emp values (4, 'Mohammed', null, 250);
+---- 2 - decreased parameters (as long as not primary key or not null)
+insert into emp(empNo, empName) values (5, 'Dalbah');
+
+-- UPDATE values
+update emp set deptNo = 3 where empNo = 4;
+update emp set deptNo = 1, salary = 375 where empNo = 5;
+-- notice: where specifies which record to update
+
+-- DELETE rows
+delete from dept where deptNo = 5;
+-- notice: where specifies which record to delete
+
+select * from emp;
+select * from dept;
+
+drop table emp;
+drop table dept;
