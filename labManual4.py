@@ -22,16 +22,16 @@ print(sumToN(n))
 # activity 2 - series (approximate pi)
 def displayPi(i):
     frac = 0
-    sumed = 0
+    summed = 0
     while True:
-        top = ((-1) ** (i + 1))
-        bottom = ((2 * i) - 1)
-        frac = top / bottom
+        frac = ((-1) ** (i + 1)) / ((2 * i) - 1)
+        summed += frac
         i -= 1
-        sumed += frac
+        if (i % 2 != 0):
+            continue
         if (i == 0):
             break
-    return 4 * (sumed)
+    return 4 * (summed)
 
 i = int(input("Enter value of i: "))
 pi = displayPi(i)
@@ -41,14 +41,16 @@ print(pi)
 def isPrime(x):
     if x <= 1:
         return False
-    for i in range(2, x + 1):
-        if x % i == 0:
-            return False
-        else:
-            return True
+    else:
+        for i in range(2, x + 1):
+            if i != x and i != 1:
+                if x % i == 0:
+                    return False
+            else:
+                return True
 def primes(a, b):
     for i in range(a, b + 1):
         if isPrime(i):
             print(i)
         
-primes(1, 15)
+primes(1, 25)
