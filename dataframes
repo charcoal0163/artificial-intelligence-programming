@@ -24,3 +24,52 @@ studentsListDic = pd.DataFrame(stdList)
 print(studentsListDic)
 
 # notice: when building a dataframe from a dictionary of lists, all lists must have the same number of elements, whereas while building a dataframe from a list of dictionaries, it isn't necessary
+
+
+def manage(nums, target, op):
+    
+    counter = 0
+    # theList = []
+    
+    indexList = []
+    for i in nums:
+        if i == target:
+            counter += 1
+            indexList.append(i)
+    
+    if counter != 0:
+        print(f"{counter} occurrences of {target}")
+    else:
+        print(f"{target} not found")
+            
+    theOther = []
+    counting = 0
+    if op == "negative":
+        for i in nums[:]:
+            if i < 0:
+                theOther.append(i)
+                nums.remove(i)
+                counting += 1
+    elif op == "positive":
+        for i in nums[:]:
+            if i > 0:
+                theOther.append(i)
+                nums.remove(i)
+                counting += 1
+    print(f"removed {counting} {op} numbers from the list")
+    print("removed numbers", theOther)
+    print(indexList)
+    return indexList, theOther
+
+nums = [15, 12, -7, 6, 5, 6, -8, 14, -16, 5, 6]
+manage(nums, -16, "negative")
+print(nums)
+
+
+# def calc(base, height = 10):
+#     area = 0.5 * base * height
+#     return area
+
+# base = float(input("enter base: "))
+# height = float(input("enter height: "))
+# print(calc(base, height))
