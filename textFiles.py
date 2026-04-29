@@ -1,3 +1,4 @@
+# notice: no need to import pandas
 # writing and appending on a text file using write and writelines
 
 file = open("test.txt", "w")
