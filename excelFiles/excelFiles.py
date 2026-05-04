@@ -55,3 +55,27 @@ sheetCSV = sheet.to_csv(index = False)
 print(sheetCSV)
 
 sheet.to_excel("excelExample.xlsx", sheet_name = "grades", index = False)
+
+# more functions to use -- yay am i right?
+students = [{"ID": 1, "Name": "Acheron", "Grade": 99, "Average": 97.6}, 
+            {"ID": 2, "Name": "Ahmad", "Grade": 98, "Average": 98.2}, 
+            {"ID": 3, "Name": "Qusai", "Grade": 97.9, "Average": 92.7}]
+
+dataframe = pd.DataFrame(students)
+print(dataframe)
+print(dataframe["Name"])
+nameList = dataframe["Name"].to_list()
+print(nameList)
+
+print("Average of grades:", dataframe["Grade"].mean())
+print("Highest of average:", dataframe["Average"].max())
+print("Lowest of averages:", dataframe["Average"].min())
+print("Sum of grades:", dataframe["Grade"].sum())
+
+# exercise 5 from powerpoint
+data = pd.read_excel(r"C:\Users\ASU\Documents\temporary file (0163)\excelFiles\example.xlsx", sheet_name = "marks")
+print(data)
+print("Mean of total:", data["Total"].mean())
+print("Maximum of total:", data["Total"].max())
+print("Minimum of total:", data["Total"].min())
+# end of exercise
