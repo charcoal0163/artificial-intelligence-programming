@@ -1,11 +1,11 @@
 import pandas as pd
 
-# # notice: ways to choose different separators while reading CSV files
-# dataCSV = pd.read_csv("student.csv", sep = "\t")
-# two = pd.read_csv("differentSep.csv", sep = ";")
-# three = pd.read_csv("differentSep.csv", sep = "\t")
-# four = pd.read_csv("differentSep.csv", sep = "**")
-# # bonus: to read a CSV with a separator that isn't a comma via an excel file, use "From Text/CSV in the data tab, then specify the separator and load
+# notice: ways to choose different separators while reading CSV files
+dataCSV = pd.read_csv("student.csv", sep = "\t")
+two = pd.read_csv("differentSep.csv", sep = ";")
+three = pd.read_csv("differentSep.csv", sep = "\t")
+four = pd.read_csv("differentSep.csv", sep = "**")
+# bonus: to read a CSV with a separator that isn't a comma via an excel file, use "From Text/CSV in the data tab, then specify the separator and load
 
 deets = [{"ID": 1, "Name": "Acheron", "Grade": 99, "Average": 97.6}, 
          {"ID": 2, "Name": "Ahmad", "Grade": 98, "Average": 98.2}, 
