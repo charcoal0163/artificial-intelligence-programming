@@ -9,8 +9,8 @@ y = dataframe["Play"]
 print(y)
 
 # step 3: select the feature columns
-# # way 1:
-# x = dataframe[["Outlook", "Temperature", "Humidity", "Windy"]]
+# way 1:
+x = dataframe[["Outlook", "Temperature", "Humidity", "Windy"]]
 # way 2:
 x = dataframe.iloc[:, 0:4]
 print(x)
