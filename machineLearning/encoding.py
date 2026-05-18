@@ -4,7 +4,6 @@ dataframe = pd.read_csv(r"C:\Users\ASU\Documents\temporary file (0163)\machineLe
 y = dataframe["Play"]
 x = dataframe.iloc[:, 0:4]
 
-
 # step 4.1: encoding the data - manually
 
 # way 1: using methods and enumarting the values using a dictionary by hand
@@ -25,13 +24,11 @@ dic = {}
 for i in range(len(uniqueList)):
     dic[uniqueList[i]] = i
 x["Windy"] = x["Windy"].map(dic)
-
 print(x)
 
 print(y.unique())
 y = y.map({"No": 0, "Yes": 1})
 print(y)
-
 
 # step 4.2: encoding the data - using library
 from sklearn.preprocessing import LabelEncoder as enc
