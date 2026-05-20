@@ -6,8 +6,9 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
+
 dataset = pd.read_csv(r"C:\Users\ASU\Documents\temporary file (0163)\machineLearning\weather_forecast_preprocessed.csv")
-# print(dataset)
+print(dataset)
 y = dataset["Play"]
 x = dataset.iloc[:, 0:4]
 
@@ -44,10 +45,10 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, rando
 # notice: random_state is used to determine how randomly/chaotically it selects the records
 # notice: train_test_split returns four arrays; x_train (records used to train the model), x_test (records used to test the model), y_train (output of training data), y_test (output of testing data)
 
-# print(x_train)
-# print(x_test)
-# print(y_train)
-# print(y_test)
+print(x_train)
+print(x_test)
+print(y_train)
+print(y_test)
 
 # step 1: training, using fit method
 clf.fit(x_train, y_train)
