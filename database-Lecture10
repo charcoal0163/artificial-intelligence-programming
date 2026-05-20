@@ -1,0 +1,52 @@
+select empno, ename, sal from scott.emp;
+-- find all the employees that earn $2850 or more (known value)
+select empno, ename, sal from scott.emp where sal >= 2850;
+-- find all the employees that earn at least how much employee 7698 earns --- using subqueries (unknown value)
+select empno, ename, sal from scott.emp where sal >= (select sal from scott.emp where empno = 7698);
+-- find the employee that earns the least --- using subqueries and aggregate function
+select empno, ename, sal from scott.emp where sal = (select min(sal) from scott.emp);
+select * from scott.emp where sal = (select min(sal) from scott.emp group by deptno); -- error: incompatible number of rows
+select * from scott.emp where sal in (select min(sal) from scott.emp group by deptno); -- works using IN keyword
+
+select * from scott.emp where deptno = 10 or deptno = 20 or deptno = 30;
+-- previous line is equivalent to:
+select * from scott.emp where deptno in (10, 20, 30);
+-- using IN keyword in subquery to retrieve all employees that work in departments
+select * from scott.emp where deptno in (select deptno from scott.dept);
+
+-- COMPARISON OPERATORS:
+--- IN
+--- ANY: compare value to any value returned by the subquery
+--- ALL: compare value to every value returned by the subquery
+
+---- *** using ANY ***
+-- find the employees (not clerks) that earn less than any clerk with the highest salary
+select * from scott.emp where sal < any (select sal from scott.emp where job = 'CLERK') and job <> 'CLERK';
+
+-- ANY keyword:
+--   > ANY: more than the minimum
+--   < ANY: less than the maximum
+--   = ANY: equivalent to IN
+
+--- *** using ALL ***
+select * from scott.emp where sal > all (select avg(sal) from scott.emp group by deptno);
+
+-- ALL keyword:
+--   > ALL: more than the maximum
+--   < ALL: less than the minimum
+
+-- *************** --
+
+-- copying details from scott.emp to a new table
+create table test as select * from scott.emp;
+-- add a new employee
+insert into test(empno, ename) values(7839, 'Acheron');
+select * from test order by empno;
+---- *** notice: constraints are NOT copied along with the data ***
+
+-- copying certain features from scott.emp to a new table and using aliases:
+create table test as select empno, ename, sal from scott.emp;
+create table test as select empno, ename, sal from scott.emp where deptno = 10;
+create table test as select empno as SSN, ename as name, sal as salary from scott.emp where deptno = 10;
+
+select * from test;
