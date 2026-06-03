@@ -1,0 +1,15 @@
+select ename, sal, d.dname from scott.emp e, scott.dept d where e.deptno = d.deptno;
+select d.dname, count(e.empno) from scott.emp e, scott.dept d where e.deptno = d.deptno group by d.dname;
+
+select d.deptno, max(e.sal) from scott.emp e, scott.dept d where e.deptno = d.deptno group by d.deptno;
+
+select deptno, count(empno) from scott.emp group by deptno having count(empno) > 3;
+
+select ename, sal, (sal * 12) + nvl(comm, 0) as annual from scott.emp where sal < 1100;
+
+select ename, empno, job from scott.emp where ename like 'S%' and sal > 1000;
+select ename, sal from scott.emp where ename like 'S%';
+
+select empno, ename, sal from scott.emp where comm is not null and sal > 1000;
+
+select e.empno, e.ename, d.dname from scott.emp e join scott.dept d on e.deptno = d.deptno where d.dname = 'DALLAS';
